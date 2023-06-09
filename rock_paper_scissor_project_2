@@ -1,0 +1,35 @@
+import random
+
+def user_choosing():
+    valid_choice = ["r","p","s"]
+    while True:
+        user = input("what is the term you want to choose Rock , Paper, Scissors ")
+        if user in valid_choice:
+            return user
+        else:
+            print("you have chosen an invalid choice ")
+
+
+
+
+
+def play():
+    user_choice = user_choosing()
+    
+    computer_choice = random.choice(["r", "p", "s"])
+    print(("users choice: " + user_choice))
+    print("computer choice: "+ computer_choice)
+
+    if user_choice == computer_choice:
+        return "it is a tie "
+
+    if is_win(user_choice,computer_choice):
+        return (f"congratulations you have won the match and your choice was {user_choice} ")
+
+
+
+
+def is_win(player,opponent):
+    if (player =="r" and opponent == "s") or (player == "s" and opponent == "p") or (player == "p" and opponent == "r"):
+        return  True
+print(play())
